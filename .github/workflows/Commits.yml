@@ -1,0 +1,35 @@
+name: 📂 | Publishing
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 💥 | Checkout
+        uses: actions/checkout@v1
+
+      - name: 🚀 | Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 22.12.0
+
+      - name: 📩 | Install Packages
+        run: npm install
+
+      - name: ✅ | Check Lint
+        run: npm run lint:fix
+
+      - name: 💽 | Check TS-Compiler
+        run: npm run build:check
+
+      - name: 🧬 | Generate
+        run: npm run build
+
+      - name: 🎉 | Publish Package
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
