@@ -6,7 +6,10 @@ export class Zohal implements IZohal {
   #baseURL = "https://service.zohal.io/api/v0";
   #token: string;
   #http: AxiosInstance;
-  constructor(token: string, baseURL = "https://service.zohal.io/api/v0") {
+  constructor(
+    token: string,
+    baseURL = "https://service.zohal.io/api/v0/services",
+  ) {
     this.#baseURL = baseURL;
     this.#token = token;
     this.#http = axios.create({
@@ -19,10 +22,10 @@ export class Zohal implements IZohal {
   async shahkarInquiry(mobile: string, nationalCode: string): Promise<boolean> {
     try {
       const result = await this.#http.post<_ShahkarInquiryResponse>(
-        "/shahkar/inquiry",
+        "/inquiry/shahkar",
         {
           mobile,
-          nationalCode,
+          national_code: nationalCode,
         },
       );
       if (

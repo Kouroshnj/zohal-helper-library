@@ -1,6 +1,6 @@
 {
   "name": "zohal",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "an Node.js module for Zohal.io platform",
   "main": "dist/src/index.js",
   "typings": "dist/index.d.ts",
