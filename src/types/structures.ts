@@ -12,3 +12,14 @@ export interface _ShahkarInquiryResponse {
   };
   result: 1 | 6 | number;
 }
+
+export interface _CheckIbanWithNationalCode {
+  response_body: {
+    data: {
+      matched: boolean;
+    };
+    error_code: string | null;
+    message: string;
+  };
+  result: 1;
+}
