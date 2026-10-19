@@ -62,10 +62,9 @@ export class Zohal implements IZohal {
         "/inquiry/check_iban_with_national_code",
         {
           IBAN: iban,
-          birth_date:
-            typeof birthDate === "string"
-              ? birthDate
-              : moment(birthDate).locale("fa").format("jYYYY/jMM/jDD"),
+          birth_date: moment(birthDate)
+            .locale("fa")
+            .format("jYYYY/jMM/jDD"),
           national_code: nationalCode,
         },
       );
