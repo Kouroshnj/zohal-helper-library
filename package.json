@@ -1,6 +1,6 @@
 {
   "name": "zohal-helper-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A helper library that wraps up zohal infrastructure",
   "main": "dist/src/index.js",
   "typings": "dist/index.d.ts",
